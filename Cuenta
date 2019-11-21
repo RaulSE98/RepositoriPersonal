@@ -1,0 +1,40 @@
+
+public class Cuenta {
+	private double saldo;
+	
+	public Cuenta () {
+		this.saldo = 0;
+	}
+	
+	public Double getSaldo() {
+		return this.saldo;
+	}
+	public Double ingresar(double cantidad) {
+		if((double)Math.round(cantidad * 100d) / 100d == cantidad || (cantidad < 6000)) {
+			if (cantidad < 0) {
+				saldo = 0;
+			}else {
+				saldo = cantidad;
+			}
+		}else {
+			saldo = 0;
+		}
+		return saldo;
+	}
+	public Double retirar (double cantidad) {
+		if (cantidad > saldo || cantidad < 0 || (double)Math.round(cantidad * 100d) / 100d != cantidad || (cantidad > 6000)) {
+			
+		}else {
+		saldo = saldo - cantidad;
+		}
+		return saldo;
+	}
+	public void transferir (double cantidad, Cuenta v) {
+		if (cantidad < 0 || cantidad > 3000) {
+			
+		}else {
+		saldo = saldo - cantidad;
+		v.saldo = v.saldo + cantidad;
+		}
+	}
+}
